@@ -66,7 +66,7 @@ val catsEffectV = "2.1.4"
 val epimetheusV = "0.4.0"
 val circuitV = "0.3.1"
 
-val specs2V = "4.8.3"
+val specs2V = "4.10.5"
 
 val kindProjectorV = "0.11.0"
 val betterMonadicForV = "0.3.1"
