@@ -4,8 +4,6 @@ import cats.effect._
 import cats.syntax.all._
 import io.chrisdavenport.epimetheus._
 import io.chrisdavenport.circuit._
-import shapeless._
-
 
 abstract class RejectedExecutionCounter[F[_]]{
   def meteredCircuit(c: CircuitBreaker[F], circuitName: String): CircuitBreaker[F]
@@ -26,7 +24,7 @@ object RejectedExecutionCounter {
       metricName,
       "Circuit Breaker Rejected Executions.",
       Sized(Label("circuit_name")),
-      {s: String => Sized(s)}
+      {(s: String) => Sized(s)}
     ).map(new DefaultRejectedExecutionCounter(_))
 
   private class DefaultRejectedExecutionCounter[F[_]](
