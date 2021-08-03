@@ -21,7 +21,7 @@ lazy val core = project.in(file("core"))
     )
   )
 
-lazy val docs = project.in(file("site"))
+lazy val site = project.in(file("site"))
   .disablePlugins(MimaPlugin)
   .enablePlugins(NoPublishPlugin)
   .enablePlugins(DavenverseMicrositePlugin)
