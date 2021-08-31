@@ -40,4 +40,4 @@ val catsEffectV = "3.2.1"
 val epimetheusV = "0.5.0-M2"
 val circuitV = "0.5.0-M1"
 
-val specs2V = "4.12.3"
+val specs2V = "4.12.4"
