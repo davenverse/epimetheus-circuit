@@ -7,6 +7,7 @@ import io.chrisdavenport.circuit._
 
 abstract class RejectedExecutionCounter[F[_]]{
   def meteredCircuit(c: CircuitBreaker[F], circuitName: String): CircuitBreaker[F]
+  def meteredResourceCircuit(c: CircuitBreaker[Resource[F, *]], circuitName: String): CircuitBreaker[Resource[F, *]]
 }
 
 object RejectedExecutionCounter {
@@ -30,8 +31,10 @@ object RejectedExecutionCounter {
   private class DefaultRejectedExecutionCounter[F[_]](
     counter: UnlabelledCounter[F, String]
   ) extends RejectedExecutionCounter[F]{
-    override def meteredCircuit(c: CircuitBreaker[F], circuitName: String): CircuitBreaker[F] = 
+    override def meteredCircuit(c: CircuitBreaker[F], circuitName: String): CircuitBreaker[F] =
       c.doOnRejected(counter.label(circuitName).inc)
+    override def meteredResourceCircuit(c: CircuitBreaker[Resource[F, *]], circuitName: String): CircuitBreaker[Resource[F, *]] =
+      c.doOnRejected(counter.mapK(Resource.liftK).label(circuitName).inc)
   }
 
 
