@@ -1,6 +1,6 @@
 import sbtcrossproject.CrossPlugin.autoImport.{crossProject, CrossType}
 
-ThisBuild / crossScalaVersions := Seq("2.12.14", "2.13.6", "3.1.0")
+ThisBuild / crossScalaVersions := Seq("2.12.14", "2.13.8", "3.1.0")
 
 lazy val `epimetheus-circuit` = project.in(file("."))
   .disablePlugins(MimaPlugin)
@@ -36,8 +36,8 @@ lazy val site = project.in(file("site"))
   }
 
 val catsV = "2.6.1"
-val catsEffectV = "3.2.9"
+val catsEffectV = "3.3.11"
 val epimetheusV = "0.5.0-M2"
-val circuitV = "0.5.0-M2"
+val circuitV = "0.5.0"
 
-val specs2V = "4.12.12"
+val specs2V = "4.15.0"
