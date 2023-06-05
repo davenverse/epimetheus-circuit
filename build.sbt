@@ -1,10 +1,28 @@
-import sbtcrossproject.CrossPlugin.autoImport.{crossProject, CrossType}
+ThisBuild / tlBaseVersion := "0.5" // your current series x.y
+
+ThisBuild / organization := "io.chrisdavenport"
+ThisBuild / organizationName := "Christopher Davenport"
+ThisBuild / licenses := Seq(License.MIT)
+ThisBuild / developers := List(
+  // your GitHub handle and name
+  tlGitHubDev("christopherdavenport", "Christopher Davenport")
+)
+
+ThisBuild / tlCiReleaseBranches := Seq("main")
+
+// true by default, set to false to publish to s01.oss.sonatype.org
+ThisBuild / tlSonatypeUseLegacyHost := true
 
 ThisBuild / crossScalaVersions := Seq("2.12.18", "2.13.11", "3.3.0")
 
-lazy val `epimetheus-circuit` = project.in(file("."))
-  .disablePlugins(MimaPlugin)
-  .enablePlugins(NoPublishPlugin)
+val catsV = "2.7.0"
+val catsEffectV = "3.5.0"
+val epimetheusV = "0.5.0"
+val circuitV = "0.5.1"
+
+val specs2V = "4.15.0"
+
+lazy val `epimetheus-circuit` = tlCrossRootProject
   .aggregate(core)
 
 lazy val core = project.in(file("core"))
@@ -22,22 +40,6 @@ lazy val core = project.in(file("core"))
   )
 
 lazy val site = project.in(file("site"))
-  .disablePlugins(MimaPlugin)
-  .enablePlugins(NoPublishPlugin)
-  .enablePlugins(DavenverseMicrositePlugin)
+  .enablePlugins(TypelevelSitePlugin)
   .dependsOn(core)
-  .settings{
-    import microsites._
-    Seq(
-      micrositeName := "epimetheus-circuit",
-      micrositeDescription := "Epimetheus Metrics for Circuit",
-      micrositeAuthor := "Christopher Davenport",
-    )
-  }
 
-val catsV = "2.7.0"
-val catsEffectV = "3.3.12"
-val epimetheusV = "0.5.0"
-val circuitV = "0.5.0"
-
-val specs2V = "4.15.0"
