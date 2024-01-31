@@ -1,3 +1,5 @@
+import com.typesafe.tools.mima.core.Problem
+
 ThisBuild / tlBaseVersion := "0.5" // your current series x.y
 
 ThisBuild / organization := "io.chrisdavenport"
@@ -17,7 +19,7 @@ ThisBuild / crossScalaVersions := Seq("2.12.18", "2.13.11", "3.3.0")
 
 val catsV = "2.7.0"
 val catsEffectV = "3.5.0"
-val epimetheusV = "0.5.0"
+val epimetheusV = "0.6.0-M1"
 val circuitV = "0.5.1"
 
 val specs2V = "4.15.0"
@@ -27,6 +29,7 @@ lazy val `epimetheus-circuit` = tlCrossRootProject
 
 lazy val core = project.in(file("core"))
   .settings(
+    mimaBinaryIssueFilters := List({(_: Problem) => false}), // TODO: remove this once switched to next major version
     name := "epimetheus-circuit",
     libraryDependencies ++= Seq(
       "org.typelevel"               %% "cats-core"                  % catsV,
