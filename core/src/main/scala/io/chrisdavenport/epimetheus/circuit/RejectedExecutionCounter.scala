@@ -18,7 +18,7 @@ object RejectedExecutionCounter {
    */
   def register[F[_]: Sync](
     pr: PrometheusRegistry[F],
-    metricName: Name = Name("circuit_rejected_execution_total")
+    metricName: Name = Name("circuit_rejected_execution")
   ): F[RejectedExecutionCounter[F]] =
     Counter.labelled(
       pr,
