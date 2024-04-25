@@ -22,7 +22,7 @@ val catsEffectV = "3.5.0"
 val epimetheusV = "0.6.0-M3"
 val circuitV = "0.5.1"
 
-val specs2V = "4.15.0"
+val specs2V = "4.20.2"
 
 lazy val `epimetheus-circuit` = tlCrossRootProject
   .aggregate(core)
