@@ -15,7 +15,7 @@ ThisBuild / tlCiReleaseBranches := Seq("main")
 // true by default, set to false to publish to s01.oss.sonatype.org
 ThisBuild / tlSonatypeUseLegacyHost := true
 
-ThisBuild / crossScalaVersions := Seq("2.12.18", "2.13.11", "3.3.0")
+ThisBuild / crossScalaVersions := Seq("2.13.10", "2.13.11", "3.3.0")
 
 val catsV = "2.7.0"
 val catsEffectV = "3.5.0"
