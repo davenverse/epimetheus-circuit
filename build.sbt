@@ -18,7 +18,7 @@ ThisBuild / tlSonatypeUseLegacyHost := true
 ThisBuild / crossScalaVersions := Seq("2.12.18", "2.13.11", "3.3.0")
 
 val catsV = "2.7.0"
-val catsEffectV = "3.5.0"
+val catsEffectV = "3.5.4"
 val epimetheusV = "0.6.0-M3"
 val circuitV = "0.5.1"
 
