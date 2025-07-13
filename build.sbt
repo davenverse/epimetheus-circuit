@@ -1,4 +1,5 @@
 import com.typesafe.tools.mima.core.Problem
+import laika.helium.Helium
 
 ThisBuild / tlBaseVersion := "0.6" // your current series x.y
 
@@ -46,4 +47,6 @@ lazy val core = project.in(file("core"))
 lazy val site = project.in(file("site"))
   .enablePlugins(TypelevelSitePlugin)
   .dependsOn(core)
-
+  .settings(
+    laikaTheme := Helium.defaults.site.landingPage().build
+  )
