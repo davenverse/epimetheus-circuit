@@ -16,7 +16,7 @@ ThisBuild / tlCiReleaseBranches := Seq("main")
 ThisBuild / tlSonatypeUseLegacyHost := true
 ThisBuild / githubWorkflowSbtCommand := "./sbt"
 
-ThisBuild / crossScalaVersions := Seq("2.12.18", "2.13.11", "3.3.0")
+ThisBuild / crossScalaVersions := Seq("2.12.18", "2.13.12", "3.3.0")
 
 val catsV = "2.7.0"
 val catsEffectV = "3.5.0"
