@@ -1,6 +1,6 @@
 import com.typesafe.tools.mima.core.Problem
 
-ThisBuild / tlBaseVersion := "0.5" // your current series x.y
+ThisBuild / tlBaseVersion := "0.6" // your current series x.y
 
 ThisBuild / organization := "io.chrisdavenport"
 ThisBuild / organizationName := "Christopher Davenport"
@@ -14,12 +14,13 @@ ThisBuild / tlCiReleaseBranches := Seq("main")
 
 // true by default, set to false to publish to s01.oss.sonatype.org
 ThisBuild / tlSonatypeUseLegacyHost := true
+ThisBuild / githubWorkflowSbtCommand := "./sbt"
 
 ThisBuild / crossScalaVersions := Seq("2.12.18", "2.13.11", "3.3.0")
 
 val catsV = "2.7.0"
 val catsEffectV = "3.5.0"
-val epimetheusV = "0.6.0-M3"
+val epimetheusV = "0.6.0"
 val circuitV = "0.5.1"
 
 val specs2V = "4.15.0"
