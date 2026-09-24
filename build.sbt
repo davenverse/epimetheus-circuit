@@ -13,8 +13,6 @@ ThisBuild / developers := List(
 
 ThisBuild / tlCiReleaseBranches := Seq("main")
 
-// true by default, set to false to publish to s01.oss.sonatype.org
-ThisBuild / tlSonatypeUseLegacyHost := true
 ThisBuild / githubWorkflowSbtCommand := "./sbt"
 
 ThisBuild / crossScalaVersions := Seq("2.12.18", "2.13.12", "3.3.0")
