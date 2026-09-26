@@ -15,12 +15,12 @@ ThisBuild / tlCiReleaseBranches := Seq()
 
 ThisBuild / githubWorkflowSbtCommand := "./sbt"
 
-ThisBuild / crossScalaVersions := Seq("2.12.18", "2.13.12", "3.3.0")
+ThisBuild / crossScalaVersions := Seq("2.13.18", "3.3.8")
 
-val catsV = "2.7.0"
-val catsEffectV = "3.5.0"
-val epimetheusV = "0.6.0"
-val circuitV = "0.5.1"
+val catsV = "2.13.0"
+val catsEffectV = "3.7.1"
+val epimetheusV = "0.7.1"
+val circuitV = "0.7.0"
 
 val specs2V = "4.15.0"
 
